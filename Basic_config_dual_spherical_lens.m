@@ -13,13 +13,13 @@ D_bpp = (2*f_o*NA);                         % Diameter of back pupil plane
 R_o = f_o*NA;                               % Radius of beam at interferometer
 wave = 650e-6;                              % Wavelength of light (mm)
 delta_c = 16e-3;                            % Pixel size of camera (mm)
-z_s = 2.990:200e-6:3.010;                   % Distance between sample and objective
+z_s = 2.990:50e-6:3.010;                   % Distance between sample and objective
 d_slm = 3;                                  % Distance between objective and SLM
-f_slm1 = 470;                               % Focal length of shorter focal length mirror
-f_slm2 = 523;                               % Focal length of longer focal length mirror
+f_slm1 = 100;                               % Focal length of shorter focal length mirror
+f_slm2 = 300;                               % Focal length of longer focal length mirror
 s_fac = (f_slm2-f_slm1)/(f_slm2+f_slm1);    % s-factor
 %z_h = (2*f_slm1*f_slm2)/(f_slm1+f_slm2);   % Distance between interferometer and camera (maximum overlap)
-z_h = 995;
+z_h = 500;
 zh_min = (4*R_o*delta_c)/wave;              % Min distance between interferometer and camera
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %RADIUS OF SHORTER FOCAL LENGTH SPHERICAL WAVE AT CAMERA
