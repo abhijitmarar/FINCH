@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CRLB calculation with Poisson noise
+% CRLB calculation for SIDH with Poisson noise
 % 02/12/2020
 % Abhijit Marar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
