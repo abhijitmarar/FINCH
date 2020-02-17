@@ -20,16 +20,23 @@ bg = 5;                             % Bg photons
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A = zeros(1,length(z_s));
 fisher_x = zeros(1,length(z_s));
+fisher_z = zeros(1,length(z_s));
 CRLB_x = zeros(1,length(z_s));
+CRLB_z = zeros(1,length(z_s));
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 for i = 1:length(z_s)
     A(i) = 1/(pi*(r_h(i)^2+2*(z_r(i)/k)*sin((k/(2*z_r(i)))*r_h(i)^2)));
     q_sidh = @(a,b) A(i).*(1+cos((k/(2*z_r(i))).*(a.^2+b.^2)));
     dq_dxs = @(a,b) 2.*A(i).*trans_mag(i).*(k/(2*z_r(i))).*sin((k/(2*z_r(i))).*(a.^2+b.^2)).*a;
+    dq_dzr = @(a,b) ((A(i).*(a.^2+b.^2).*k)./(2.*z_r(i).^2)).*sin((k/(2*z_r(i))).*(a.^2+b.^2));
     F_xx = @(a,b) ((N./(q_sidh(a,b)+bg)).*dq_dxs(a,b).*dq_dxs(a,b));
+    F_zz = @(a,b) ((N./(q_sidh(a,b)+bg)).*dq_dzr(a,b).*dq_dzr(a,b).*df_zr(i).*df_zr(i));
     polar_Fxx = @(theta,r) F_xx(r.*cos(theta),r.*sin(theta)).*r;
+    polar_Fzz = @(theta,r) F_zz(r.*cos(theta),r.*sin(theta)).*r;
     fisher_x(i) = integral2(polar_Fxx,0,2*pi,0,r_h(i));
+    fisher_z(i) = integral2(polar_Fzz,0,2*pi,0,r_h(i));
     CRLB_x(i) = 1.e+6/sqrt(fisher_x(i));
+    CRLB_z(i) = 1.e+6/sqrt(fisher_z(i));
 end
 
 defocus = (z_s*1e+3-3e+3);
@@ -37,16 +44,16 @@ defocus = (z_s*1e+3-3e+3);
 figure
 subplot(1,2,1)
 plot(defocus,CRLB_x)
-axis([-10 10 10 50])
+axis([-10 10 0 100])
 title('CRLB_{xy}')
 xlabel('Distance between sample and objective (\mum)')
 ylabel('\sigma_{x}, \sigma_{y} (nm)')
 
-%{
+
 subplot(1,2,2)
-plot(defocus,CRLB_z*1e+6)
-axis([-1 1 0 100])
+plot(defocus,CRLB_z)
+axis([-10 10 0 100])
 title('CRLB_{z}')
 xlabel('Distance between sample and objective (\mum)')
 ylabel('\sigma_{z}(nm)')
-%}
+
