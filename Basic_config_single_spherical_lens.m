@@ -17,7 +17,6 @@ d_slm = 3;                          % Distance between objective and SLM
 f_slm = 300;                        % Focal length of diffractive lens
 z_h = 50:100:600;                   % Distance between SLM and camera
 defocus = (z_s*1e+3-3e+3);
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %RADIUS OF SPHERICAL WAVE AT CAMERA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
