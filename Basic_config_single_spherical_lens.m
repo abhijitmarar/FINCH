@@ -16,8 +16,8 @@ delta_c = 16e-3;                    % Pixel size of camera (mm)
 z_s = 2.990:200e-6:3.010;           % Distance between sample and objective
 d_slm = 3;                          % Distance between objective and SLM
 f_slm = 300;                        % Focal length of diffractive lens
-z_h = 50:100:600;                   % Distance between SLM and camera
-%z_h = 150;
+z_h = [50,75,100,125,150];          % Distance between SLM and camera
+%z_h = [450,475,500,525,550];        % Distance between SLM and camera    
 defocus = (z_s*1e+3-3e+3);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %RADIUS OF SPHERICAL WAVE AT CAMERA
