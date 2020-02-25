@@ -14,7 +14,7 @@ z = 2.999:20e-6:3.001;                  % Distance between sample and objective
 z_s = (z-3.000);
 N = 1000;                               % No. of photons                                
 d = 800e-6;                             % Depth of focus (mm)
-bg = 200;                               % No. of bg photons/area    
+bg = 200;                            % No. of bg photons/area    
 
 
 sigma_g = zeros(1,length(z_s));
@@ -43,14 +43,14 @@ defocus = z_s*1.e+3;
 
 figure
 subplot(1,2,1)
-plot(defocus,CRLB_x.*1e+6)
+plot(defocus,CRLB_x.*1e+6,'LineWidth',3)
 axis([-1 1 0 30])
 title('CRLB_{xy}')
 xlabel('Distance between sample and objective (\mum)')
 ylabel('\sigma_{x}, \sigma_{y} (nm)')
 
 subplot(1,2,2)
-plot(defocus,CRLB_z*1e+6)
+plot(defocus,CRLB_z*1e+6,'LineWidth',3)
 axis([-1 1 0 100])
 title('CRLB_{z}')
 xlabel('Distance between sample and objective (\mum)')

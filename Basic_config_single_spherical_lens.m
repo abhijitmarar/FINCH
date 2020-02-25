@@ -36,7 +36,6 @@ for j = 1:length(z_h)
     hold on
 end
 title('Radius of spherical wave');
-legend(strcat('z_h =',num2str(z_h'),' mm'),'Location','bestoutside','FontWeight','bold')
 xlabel('Distance between sample and objective (\mum)');
 ylabel('Radius(mm)');
 hold off
@@ -131,6 +130,7 @@ for j = 1:length(z_h)
     hold on
 end
 title('Transverse magnification')
+legend(strcat('z_h =',num2str(z_h'),' mm'),'Location','bestoutside','FontWeight','bold')
 xlabel('Distance between sample and objective (\mum)')
 ylabel('M_{T}')
 pos = get(h,'Position');

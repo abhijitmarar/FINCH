@@ -18,8 +18,8 @@ z_h = [50,75,100,125,150];          % Distance between SLM and camera before foc
 r_h = radius_hologram;
 r_h(r_h == 0) = eps;
 z_r(z_r == 0) = eps;
-N = 10000;                          % No. of photons in hologram
-bg = 5;                             % Bg photons            
+N = 1000;                          % No. of photons in hologram
+bg = 3;                             % Bg photons            
 defocus = (z_s*1e+3-3e+3);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A = zeros(length(z_h),length(z_s));
@@ -46,7 +46,7 @@ for j = 1:length(z_h)
     hold on
 end
 axis([-10 10 0 500]);
-title('CRLB_{xy} (bg = 5 photons/pixel)');
+title('CRLB_{xy}');
 legend(strcat('z_h =',num2str(z_h'),' mm'),'Location','northwest','FontWeight','bold');
 xlabel('Distance between sample and objective (\mum)');
 ylabel('\sigma_{x}, \sigma_{y} (nm)');
@@ -69,7 +69,7 @@ for j = 1: length(z_h)
     hold on
 end
 axis([-10 10 0 500]);
-title('CRLB_{z} (bg = 5 photons/pixel)');
+title('CRLB_{z}');
 legend(strcat('z_h =',num2str(z_h'),' mm'),'Location','northwest','FontWeight','bold');
 xlabel('Distance between sample and objective (\mum)');
 ylabel('\sigma_{z}(nm)');
