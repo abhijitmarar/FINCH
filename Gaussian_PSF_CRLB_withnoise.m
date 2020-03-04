@@ -14,7 +14,7 @@ z = 2.999:20e-6:3.001;                  % Distance between sample and objective
 z_s = (z-3.000);
 N = 1000;                               % No. of photons                                
 d = 800e-6;                             % Depth of focus (mm)
-bg = 200;                            % No. of bg photons/area    
+bg = 200;                               % No. of bg photons/area    
 
 
 sigma_g = zeros(1,length(z_s));
