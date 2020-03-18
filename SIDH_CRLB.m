@@ -8,11 +8,7 @@
 f_o = 3;                            % Focal length of objective (mm)    
 NA = 1.42;                          % Numerical aperture of objective
 D_bpp = (2*f_o*NA);                 % Diameter of back pupil plane
-<<<<<<< HEAD
 wave = 670e-6;                      % Wavelength of light (mm)
-=======
-wave = 650e-6;                      % Wavelength of light (mm)
->>>>>>> e9e7261ac7dc90479a05f39261b833c5178fe23a
 k = 2*pi/wave;                      % Wavenumber
 z_s = 2.990:50e-6:3.010;           % Distance between sample and objective
 d_slm = 3;                          % Distance between objective and SLM
