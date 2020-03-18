@@ -43,14 +43,14 @@ defocus = z_s*1.e+3;
 
 figure
 subplot(1,2,1)
-plot(defocus,CRLB_x.*1e+6)
+plot(defocus,CRLB_x.*1e+6,'LineWidth',3)
 axis([-1 1 0 30])
 title('CRLB_{xy}')
 xlabel('Distance between sample and objective (\mum)')
 ylabel('\sigma_{x}, \sigma_{y} (nm)')
 
 subplot(1,2,2)
-plot(defocus,CRLB_z*1e+6)
+plot(defocus,CRLB_z*1e+6,'LineWidth',3)
 axis([-1 1 0 100])
 title('CRLB_{z}')
 xlabel('Distance between sample and objective (\mum)')
