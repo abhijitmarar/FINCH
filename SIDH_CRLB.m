@@ -13,8 +13,8 @@ k = 2*pi/wave;                      % Wavenumber
 z_s = 2.990:50e-6:3.010;           % Distance between sample and objective
 d_slm = 3;                          % Distance between objective and SLM
 f_slm = 300;                        % Focal length of diffractive lens
-z_h = 500;
-%z_h = [50,75,100,125,150];          % Distance between SLM and camera before focus
+%z_h = 500;
+z_h = [50,75,100,125,150];          % Distance between SLM and camera before focus
 %z_h = [450,475,500,525,550];        % Distance between SLM and camera after focus
 r_h = radius_hologram;
 r_h(r_h == 0) = eps;
