@@ -3,18 +3,20 @@
 % 02/07/2020
 % Abhijit Marar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-clear all
+%clear all
 
 f_o = 3;                                % Focal length of objective (mm)    
 NA = 1.42;                              % Numerical aperture of objective
 wave = 670e-6;                          % Wavelength of light (mm)
 FWHM = (0.61*wave)/NA;                  % FWHM
+n = 1.515;  
 sigma_o = FWHM/(2*sqrt(2*log(2)));      % standard deviation of Gaussian
 z = 2.990:50e-6:3.010;                  % Distance between sample and objective
 z_s = (z-3.000);
 N = 6000;                               % No. of photons                                
-d = 800e-6;                             % Depth of focus (mm)
-gamma = 400e-6;                         % Amount of astigmatism (mm)
+%d = (2*wave)/NA^2;                     % Depth of focus (mm)
+d = wave/(n*(1-(1-(NA/n)^2)^(1/2)));
+gamma = 405e-6;                         % Amount of astigmatism (mm)
 
 sigma_x = zeros(1,length(z_s));
 sigma_y = zeros(1,length(z_s));
@@ -37,7 +39,7 @@ for i = 1:length(z_s)
 end
 
 defocus = z_s*1.e+3;
-
+%{
 figure
 subplot(1,2,1)
 plot(defocus,CRLB_x*1e+6,'LineWidth',3)
@@ -48,6 +50,7 @@ axis([-2 2 0 30])
 title('CRLB_{xy}')
 xlabel('Distance between sample and objective (\mum)')
 ylabel('\sigma_{x}, \sigma_{y} (nm)')
+legend('\sigma_{x}', '\sigma_{y}')
 hold off
 
 subplot(1,2,2)
@@ -56,4 +59,4 @@ axis([-2 2 0 100])
 title('CRLB_{z}')
 xlabel('Distance between sample and objective (\mum)')
 ylabel('\sigma_{z}(nm)')
-    
+ %}   
