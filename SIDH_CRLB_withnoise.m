@@ -20,7 +20,7 @@ r_h = radius_hologram;
 r_h(r_h == 0) = eps;
 z_r(z_r == 0) = eps;
 N = 6000;                           % No. of photons in hologram
-bg = 1000;                         % Bg photons            
+bg = 10;                            % Bg photons            
 defocus = (z_s*1e+3-3e+3);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 A = zeros(length(z_h),length(z_s));
