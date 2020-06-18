@@ -1,5 +1,5 @@
 # Cramer-Rao Lower Bound (CRLB) calculations for SIDH
-***The code above allows you to calculate the CRLB for two different configurations of SIDH:***
+***The code allows one to calculate the CRLB for two different configurations of SIDH:***
 
 ***1. Configuration 1: SIDH with one spherical wave and one plane wave***
 
