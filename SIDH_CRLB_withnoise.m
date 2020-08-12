@@ -46,7 +46,7 @@ for j = 1:length(z_h)
     plot(defocus,CRLB_x(j,:),'LineWidth',3);
     hold on
 end
-axis([-10 10 0 500]);
+axis([-10 10 0 50]);
 title('CRLB_{xy}');
 legend(strcat('z_h =',num2str(z_h'),' mm'),'Location','northwest','FontWeight','bold');
 xlabel('Distance between sample and objective (\mum)');
@@ -69,7 +69,7 @@ for j = 1: length(z_h)
     plot(defocus,CRLB_z(j,:),'LineWidth',3)
     hold on
 end
-axis([-10 10 0 500]);
+axis([-10 10 0 50]);
 title('CRLB_{z}');
 legend(strcat('z_h =',num2str(z_h'),' mm'),'Location','northwest','FontWeight','bold');
 xlabel('Distance between sample and objective (\mum)');
