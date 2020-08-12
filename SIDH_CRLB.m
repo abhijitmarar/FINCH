@@ -8,12 +8,13 @@
 f_o = 3;                            % Focal length of objective (mm)    
 NA = 1.42;                          % Numerical aperture of objective
 D_bpp = (2*f_o*NA);                 % Diameter of back pupil plane
-wave = 650e-6;                      % Wavelength of light (mm)
+wave = 670e-6;                      % Wavelength of light (mm)
 k = 2*pi/wave;                      % Wavenumber
-z_s = 2.990:50e-6:3.010;           % Distance between sample and objective
+z_s = 2.990:5e-6:3.010;           % Distance between sample and objective
 d_slm = 3;                          % Distance between objective and SLM
 f_slm = 300;                        % Focal length of diffractive lens
-z_h = 500;
+%z_h = [500,525,550,575,600];
+z_h = 150;
 %z_h = [50,75,100,125,150];          % Distance between SLM and camera before focus
 %z_h = [450,475,500,525,550];        % Distance between SLM and camera after focus
 r_h = radius_hologram;
@@ -47,7 +48,7 @@ p(1) = subplot(1,2,1);
 for j = 1:length(z_h)
     for i = 1:length(z_s)
         fisher_xx_cnst = subs(fisher_xx, [A,r_H,Alpha],[normalization_cnst(j,i),r_h(j,i),alpha(j,i)]);
-        F_xx(j,i) = 1000*2*pi*abs(fisher_xx_cnst)*trans_mag(j,i)*trans_mag(j,i);
+        F_xx(j,i) = 6000*2*pi*abs(fisher_xx_cnst)*trans_mag(j,i)*trans_mag(j,i);
         sigma_xx(j,i) = 1e+6/sqrt(F_xx(j,i));
     end
     plot(defocus,sigma_xx(j,:),'LineWidth',3);
@@ -70,7 +71,7 @@ p(2) = subplot(1,2,2);
 for j = 1: length(z_h)
     for i = 1:length(z_s)
         fisher_zz_cnst = subs(fisher_zz, [A,z_R,r_H,Alpha],[normalization_cnst(j,i),z_r(j,i),r_h(j,i),alpha(j,i)]);
-        F_zz(j,i) = 1000*((pi*k^2)/2)*abs(fisher_zz_cnst)*df_zr(j,i)*df_zr(j,i);
+        F_zz(j,i) = 6000*((pi*k^2)/2)*abs(fisher_zz_cnst)*df_zr(j,i)*df_zr(j,i);
         sigma_zz(j,i) = 1e+6/sqrt(F_zz(j,i));
     end
     plot(defocus,sigma_zz(j,:),'LineWidth',3);

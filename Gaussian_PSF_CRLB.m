@@ -6,13 +6,15 @@
 
 f_o = 3;                                % Focal length of objective (mm)    
 NA = 1.42;                              % Numerical aperture of objective
-wave = 515e-6;                          % Wavelength of light (mm)
+wave = 670e-6;                          % Wavelength of light (mm)
+n = 1.515;                              % Refractive Index
 FWHM = (0.61*wave)/NA;                  % FWHM
 sigma_o = FWHM/(2*sqrt(2*log(2)));      % standard deviation of Gaussian
-z = 2.999:20e-6:3.001;                  % Distance between sample and objective
+z = 2.990:50e-6:3.010;                  % Distance between sample and objective
 z_s = (z-3.000);
-N = 1000;                               % No. of photons                                
-d = 800e-6;                             % Depth of focus (mm)
+N = 6000;                               % No. of photons                                
+%d = (2*wave)/NA^2;                      % Depth of focus (mm)
+d = wave/(n*(1-(1-(NA/n)^2)^(1/2)));
 
 sigma_g = zeros(1,length(z_s));
 sigma_xy = zeros(1,length(z_s));
@@ -24,7 +26,7 @@ for i = 1:length(z_s)
 end
 
 defocus = z_s*1.e+3;
-
+%{
 figure
 subplot(1,2,1)
 plot(defocus,sigma_xy*1e+6,'LineWidth',3)
@@ -40,5 +42,5 @@ axis([-1 1 0 100])
 title('CRLB_{z}')
 xlabel('Distance between sample and objective (\mum)')
 ylabel('\sigma_{z}(nm)')
-
+%}
 

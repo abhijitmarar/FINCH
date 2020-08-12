@@ -11,12 +11,13 @@ clear all
 f_o = 3;                            % Focal length of objective (mm)    
 NA = 1.42;                          % Numerical aperture of objective
 D_bpp = (2*f_o*NA);                 % Diameter of back pupil plane
-wave = 515e-6;                      % Wavelength of light (mm)
+wave = 670e-6;                      % Wavelength of light (mm)
 delta_c = 16e-3;                    % Pixel size of camera (mm)
-z_s = 2.990:200e-6:3.010;           % Distance between sample and objective
+z_s = 2.990:50e-6:3.010;             % Distance between sample and objective
 d_slm = 3;                          % Distance between objective and SLM
 f_slm = 300;                        % Focal length of diffractive lens
-z_h = [50,75,100,125,150];          % Distance between SLM and camera
+z_h = 150;
+%z_h = [50,75,100,125,150];          % Distance between SLM and camera
 %z_h = [450,475,500,525,550];        % Distance between SLM and camera    
 defocus = (z_s*1e+3-3e+3);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
